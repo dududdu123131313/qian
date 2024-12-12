@@ -67,7 +67,7 @@ export default {
       const { phoneNumber, passWord } = this.signup;
       const phoneNumberRegex = /^\d{11}$/;
       if (phoneNumber && passWord && phoneNumberRegex) {
-        axios.post('http://10.3.112.10:8088/users', {
+        axios.post('/users/register', {
           phoneNumber: phoneNumber,
           passWord: passWord,
         }, {

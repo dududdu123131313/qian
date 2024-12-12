@@ -43,7 +43,7 @@ export default {
   methods: {
     async fetchRegistrationInfoByAccountName() {
       try {
-        const response = await axios.get(`http://10.3.83.194:8088/registrationLists/account/${this.searchAccountName}`);
+        const response = await axios.get(`/registrationLists/account/${this.searchAccountName}`);
         this.registrationInfo = response.data;
         this.filterRegistrationInfo();
       } catch (error) {

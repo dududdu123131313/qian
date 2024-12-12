@@ -107,7 +107,7 @@ export default {
       }
 
 
-      const queryUrl = `http://10.3.83.194:8088/doctors/query?department=${encodedDepartment}&outpatientType=${encodedType}&visitTime=${encodedDate}`;
+      const queryUrl = `/doctors/query?department=${encodedDepartment}&outpatientType=${encodedType}&visitTime=${encodedDate}`;
       axios.get(queryUrl)
           .then(response => {
             this.doctors = response.data;

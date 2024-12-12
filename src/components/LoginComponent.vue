@@ -67,7 +67,7 @@ export default {
       if (accountName && passWord) {
         // 判断输入的是否为手机号格式，这里简单以是否纯数字且长度合适来判断，实际可能需更严谨验证
         const isPhoneNumber = /^\d{11}$/.test(accountName);
-        let loginUrl = isPhoneNumber? 'http://10.3.83.194:8088/users/login/phone' : 'http://10.3.83.194:8088/users/login/account';
+        let loginUrl = isPhoneNumber? '/users/login/phone' : '/users/login/account';
         const loginData = isPhoneNumber? { phoneNumber: accountName, passWord: passWord } : { accountName: accountName, passWord: passWord };
         axios.post(loginUrl, loginData, {
           headers: {

@@ -114,7 +114,7 @@ export default {
       this.showModal = false;
     },
     submitFamilyMember() {
-      axios.post('/api/family-members', {
+      axios.post('/family-members', {
         name: this.newMember.name,
         idNumber: this.newMember.idNumber
       })
@@ -137,7 +137,7 @@ export default {
     },
     submitRealNameVerification() {
       if (this.canVerify) {
-        axios.post('/api/real-name-verification', {
+        axios.post('/real-name-verification', {
           name: this.authInfo.name,
           idNumber: this.authInfo.idNumber
         })

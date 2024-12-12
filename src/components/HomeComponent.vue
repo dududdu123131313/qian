@@ -87,7 +87,7 @@ body, html {
   padding: 20px;
   width: 100%; /* Ensure the main content takes up the remaining space */
 
-  background: 100;
+  background: 100%;
 
 }
 </style>

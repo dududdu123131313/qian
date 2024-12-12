@@ -100,7 +100,7 @@ export default {
         };
 
         // 使用 axios 发送 POST 请求到后端
-        axios.post('http://10.3.83.194:8088/registrationLists/addRegistration', RegistrationList)
+        axios.post('/registrationLists/addRegistration', RegistrationList)
           .then(response => {
             // 请求成功，处理响应
             console.log('Appointment successful:', response.data);

@@ -80,7 +80,7 @@ export default {
     },
     fetchMessages() {
       // 模拟从后端获取新消息的过程
-      axios.get('/api/messages')
+      axios.get('/messages')
         .then(response => {
           const newMessages = response.data;
           this.messages = [...this.messages, ...newMessages];

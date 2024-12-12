@@ -40,7 +40,7 @@ export default {
     },
     cancelAppointment() {
       // 发送请求到后端API来取消预约
-      axios.post(`http://10.3.83.194:8088/registrationLists/cancel/${this.registration.id}`)
+      axios.post(`/registrationLists/cancel/${this.registration.id}`)
         .then(response => {
           if (response.status === 200) {
             alert('预约已取消');
