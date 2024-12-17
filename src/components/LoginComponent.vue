@@ -63,6 +63,7 @@ export default {
 
     // 处理登录逻辑，使用axios发送POST请求
     handleLogin() {
+    
       const { accountName, passWord } = this.login;
       if (accountName && passWord) {
         // 判断输入的是否为手机号格式，这里简单以是否纯数字且长度合适来判断，实际可能需更严谨验证
@@ -76,8 +77,10 @@ export default {
         })
             .then(response => {
               if (response.status >= 200 && response.status < 300) {
+                console.log(response.data); 
+                this.$store.commit("setUserInfo", response.data);
                 alert('登录成功！');
-                window.location.href = '/home';
+                this.$router.push('/homeComponent') ;
               } else {
                 throw new Error('登录失败');
               }

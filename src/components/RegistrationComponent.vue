@@ -1,16 +1,5 @@
 <!-- RegistrationComponent.vue -->
 <template>
-  <div class="nav-bar">
-    <h1 class="nav-title">南京市浦口人民医院</h1>
-    <!-- 导航链接，使用router-link -->
-    <router-link to="/home" class="nav-item">主页</router-link>
-    <router-link to="/registration" class="nav-item">预约挂号</router-link>
-    <router-link to="/my-registrations" class="nav-item">我的挂号</router-link>
-    <router-link to="/my-bills" class="nav-item">我的账单</router-link>
-    <router-link to="/my-messages" class="nav-item">消息中心</router-link>
-    <router-link to="/profile" class="nav-item">个人中心</router-link>
-  </div>
-
   <div class="container">
     <h1 class="title">预约挂号</h1>
         <div class="selection-container">
@@ -148,11 +137,11 @@ export default {
   flex-direction: column;
   justify-content: flex-start; 
   align-items: center;
-  margin-left:200px;
-  height: 100vh; /* 使容器占满整个视口高度 */
-  width: 100%; /* 沾满整个视口宽度 */
-  box-sizing: border-box; /* 确保 padding 不会影响宽度和高度 */
-  padding: 20px; /* 根据需要添加内边距 */
+  margin-left:20px;
+  height: 100%; 
+  width: 100%;
+  box-sizing: border-box; 
+  padding: 20px;
 }
 
 .title {
@@ -248,17 +237,4 @@ export default {
   height: 100%;
   width: 100%;
 }
-.nav-bar {
-  width: 200px;
-  height: 100%;
-  position: fixed;
-  background-color:#3131FF ;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-
-
-}
-
 </style>

@@ -31,11 +31,15 @@
       <p v-if="doctor.remainingNumbers > 0">剩余号数：{{ doctor.remainingNumbers }}</p>
       <!-- 显示挂号费 -->
       <p>挂号费：{{ doctor.cost }}元</p>
-      <label for="patient">选择挂号人：</label>
+      <p>挂号人：{{ userInfo.name }}</p>
+
+      <!--<label for="patient">选择挂号人：</label>
       <select id="patient" v-model="selectedPatient">
         <option disabled value="">请选择</option>
         <option v-for="patient in patients" :key="patient.id" :value="patient">{{ patient.name }}</option>
-      </select>
+      </select> -->
+
+
       <!-- 支付按钮 -->
       <button class="payment-button" @click="handlePayment">支付</button>
     </div>
@@ -59,22 +63,16 @@ export default {
       showAppointmentModal: false,
       selectedPatient: '',
       patients: [
-        { id: 1, name: '张三' },
-        { id: 2, name: '李四' },
-        { id: 3, name: '王五' }
+        { id: 2, name: '李昊' },
+        { id: 3, name: '李四' },
+        { id: 1, name: '王五' }
       ]
     };
   },
   computed: {
     // 从个人中心获取用户名、姓名和电话
-    currentUser() {
-      // 假设这些信息存储在另一个组件或者 Vuex store 中
-      // 这里只是一个示例，你需要根据实际情况调整
-      return {
-        username: this.$root.username, // 从根组件获取用户名
-        name: this.$root.name, // 从根组件获取姓名
-        phone: this.$root.phone, // 从根组件获取电话
-      };
+    userInfo() {
+      return this.$store.state.userInfo;
     }
   },
 
@@ -83,20 +81,20 @@ export default {
       alert(`预约${doctor.name}在${doctor.VisitTime}`);
     },
     handlePayment() {
-      if (this.selectedPatient) {
+    
         const registrationTime = new Date();
         registrationTime.setHours(registrationTime.getHours() + 8);
         // 构建要发送到后端的数据对象
         const RegistrationList = {
-          name:  this.selectedPatient.name ,
+          name:  this.userInfo.name ,
           age: '18', // 假设年龄信息需要从其他地方获取
-          phoneNumber: '13363618523', // 假设电话号码信息需要从其他地方获取
+          phoneNumber: this.userInfo.phonenumber, // 假设电话号码信息需要从其他地方获取
           department: this.doctor.department,
           visitTime: this.doctor.visitTime,
           registrationTime:  registrationTime.toISOString(),
           doctor_Name: this.doctor.name,
           outpatientType: this.doctor.outpatientType,
-          accountName: 'user123', // 假设你有一个方法来获取当前登录用户的用户名
+          accountName: this.userInfo.accountName, // 假设你有一个方法来获取当前登录用户的用户名
         };
 
         // 使用 axios 发送 POST 请求到后端
@@ -112,9 +110,7 @@ export default {
             console.error('Appointment failed:', error.response || error.message);
             alert('预约失败，请重试。');
           });
-      } else {
-        alert('请选择挂号人。');
-      }
+      
     },
     formatDateTime(dateTimeString) {
       const date = new Date(dateTimeString);

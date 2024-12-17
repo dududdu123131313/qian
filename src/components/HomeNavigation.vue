@@ -3,7 +3,7 @@
       <div class="nav-bar">
         <h1 class="nav-title">南京市浦口人民医院</h1>
         <!-- 导航链接，使用router-link -->
-        <router-link to="/home" class="nav-item">主页</router-link>
+        <router-link to="/homeComponent" class="nav-item">主页</router-link>
         <router-link to="/registration" class="nav-item">预约挂号</router-link>
         <router-link to="/my-registrations" class="nav-item">我的挂号</router-link>
         <router-link to="/my-bills" class="nav-item">我的账单</router-link>
@@ -38,18 +38,7 @@
   </script>
   
   <style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-  }
-  
-  #app {
-    display: flex;
-    height: 100%;
-    width: 100%;
-  }
+
   
   .nav-bar {
     width: 200px;
@@ -82,11 +71,8 @@
   }
   
   .main-content {
-    margin-left: 220px; /* Adjust the margin to account for the width of the nav-bar plus padding */
+    margin-left: 220px; 
     padding: 20px;
-    width: 100%; /* Ensure the main content takes up the remaining space */
-    
-
-    
+    width: 80%; 
   }
   </style>

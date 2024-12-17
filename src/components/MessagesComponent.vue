@@ -1,15 +1,5 @@
 <!-- MessagesComponent.vue -->
 <template>
-  <div class="nav-bar">
-    <h1 class="nav-title">南京市浦口人民医院</h1>
-    <!-- 导航链接，使用router-link -->
-    <router-link to="/home" class="nav-item">主页</router-link>
-    <router-link to="/registration" class="nav-item">预约挂号</router-link>
-    <router-link to="/my-registrations" class="nav-item">我的挂号</router-link>
-    <router-link to="/my-bills" class="nav-item">我的账单</router-link>
-    <router-link to="/my-messages" class="nav-item">消息中心</router-link>
-    <router-link to="/profile" class="nav-item">个人中心</router-link>
-  </div>
   <div class="container">
     <h1 class="title">消息中心</h1>
     <div class="messages-list">
@@ -113,7 +103,7 @@ export default {
 
 .messages-list {
   max-width: 95%;
-  margin: 0 200px;
+  margin: 0 20px;
 }
 
 .message-card {
@@ -148,16 +138,7 @@ export default {
 button {
   margin-top: 20px;
 }
-.nav-bar {
-  width: 200px;
-  height: 100%;
-  position: fixed;
-  background-color:#3131FF ;
-  color: white;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
+
 .container {
 
   margin-left:20px;

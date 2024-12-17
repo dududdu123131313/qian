@@ -1,21 +1,11 @@
 <template>
-  <div class="nav-bar">
-    <h1 class="nav-title">南京市浦口人民医院</h1>
-    <!-- 导航链接，使用router-link -->
-    <router-link to="/home" class="nav-item">主页</router-link>
-    <router-link to="/registration" class="nav-item">预约挂号</router-link>
-    <router-link to="/my-registrations" class="nav-item">我的挂号</router-link>
-    <router-link to="/my-bills" class="nav-item">我的账单</router-link>
-    <router-link to="/my-messages" class="nav-item">消息中心</router-link>
-    <router-link to="/profile" class="nav-item">个人中心</router-link>
-  </div>
   <div class="profile-container">
     <h1 class="title">个人中心</h1>
     <div class="section-box account-info">
       <h2 class="section-title">账号信息</h2>
-      <p>用户名: <strong>{{ username }}</strong></p>
-      <p>姓名: <strong>{{ name }}</strong></p>
-      <p>手机号: <strong>{{ phone }}</strong></p>
+      <p>用户名: <strong>{{ userInfo.accountName }}</strong></p>
+      <p>姓名: <strong>{{  userInfo.name }}</strong></p>
+      <p>手机号: <strong>{{  userInfo.phonenumber }}</strong></p>
       <button @click="changePassword">修改密码</button>
       <button @click="bindPhone">绑定手机号</button>
       <button @click="logout">退出登录</button>
@@ -105,7 +95,10 @@ export default {
   computed: {
     // 计算属性，根据实名认证状态禁用按钮
     canVerify() {
-      return!this.isRealNameVerified;
+      return !this.isRealNameVerified;
+    },
+    userInfo() {
+      return this.$store.state.userInfo;
     }
   },
 
@@ -208,6 +201,7 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  margin-left: 20px;
 }
 
 .title {
@@ -309,7 +303,5 @@ input {
   display: flex;
   flex-direction: column;
 }
-.profile-container {
-  margin-left: 250px;
-}
+
 </style>
